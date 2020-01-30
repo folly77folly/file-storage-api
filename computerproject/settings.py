@@ -77,12 +77,13 @@ WSGI_APPLICATION = 'computerproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'djongo',
         'NAME': 'computerapi',
-        'USER': 'postgres',
-        'PASSWORD': 'pass',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'pass',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
+        # 'ENGINE': 'django.db.backends.postgresql',
     }
 }
 
@@ -124,3 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
