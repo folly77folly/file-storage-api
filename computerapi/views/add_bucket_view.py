@@ -8,10 +8,15 @@ from rest_framework import  status
 
 @api_view(['POST'])
 def add_bucket(request):
-    if request.method == 'POST':
-        data = request.data
-        serializer = BucketSerializer(data = data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status = status.HTTP_201_CREATED)
-        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    #collecting data from reuest
+    data = request.data
+
+    #using serializer on the Bucket model
+    serializer = BucketSerializer(data = data)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status = status.HTTP_201_CREATED)
+
+    return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)

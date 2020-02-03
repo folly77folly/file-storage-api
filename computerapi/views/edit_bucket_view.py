@@ -8,14 +8,21 @@ from rest_framework import  status
 
 @api_view(['PUT'])
 def edit_bucket(request, bucket_id):
+
     #get the bukcet to edit
     try:
         bucket_to_edit = Bucket.objects.get(pk = bucket_id)
     except Bucket.DoesNotExist:
-        return Response(status=404)
+        return Response(status = status.HTTP_400_BAD_REQUEST)
+
+    # using request .data because its an API not form
     data = request.data
+
+    #serializer object for edit created
     serializers = BucketSerializer(bucket_to_edit, data)
+
     if serializers.is_valid():
         serializers.save()
         return Response(serializers.data, status = status.HTTP_200_OK)
+
     return Response(serializers.errors, status = status.HTTP_400_BAD_REQUEST)

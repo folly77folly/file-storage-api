@@ -8,11 +8,16 @@ from rest_framework import  status
 
 @api_view(['DELETE'])
 def remove_bucket(request, bucket_id):
-    #get the bukcet to edit
+    #get the bukcet to delete
     try:
         bucket_to_delete = Bucket.objects.get(pk = bucket_id)
+
     except Bucket.DoesNotExist:
-        return Response(status=404)
+        
+        return Response(status = status.HTTP_400_BAD_REQUEST)
+
+    #perform delete on a bucket object
     bucket_to_delete.delete()
-    return HttpResponse(status = 204)
+
+    return HttpResponse(status = status.HTTP_204_NO_CONTENT)
     
