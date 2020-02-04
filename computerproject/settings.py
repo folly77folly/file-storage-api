@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'computerapi',
-        # 'HOST': 'db:27017',
+        'HOST': 'localhost:27017',
         # 'USERNAME': 'aqim',
         # 'PASSWORD': 'aqim',
     }
