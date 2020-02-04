@@ -79,11 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'computerapi',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'pass',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '5432',
-        # 'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'db:27017',
+        'USERNAME': 'aqim',
+        'PASSWORD': 'aqim',
     }
 }
 
