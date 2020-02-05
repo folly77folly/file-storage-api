@@ -5,7 +5,6 @@ services:
     image: mongo    
     ports: 
       - 27017:27017
-    mongo --eval 'db.createUser({ user: "myrootuser", pwd: "mypassword", roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });'       
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
