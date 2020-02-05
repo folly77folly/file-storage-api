@@ -79,8 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'computerapi',
-        'HOST': 'localhost',
-        'PORT': 27017,        
+        'HOST': 'localhost',    
         'USERNAME': 'root',
         'PASSWORD': 'rootpassword',
     }
