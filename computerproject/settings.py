@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'computerapi',
-        'HOST': 'localhost',    
-        'USERNAME': 'root',
-        'PASSWORD': 'rootpassword',
+        'HOST': 'db:27017:',    
+        # 'USERNAME': 'root',
+        # 'PASSWORD': 'rootpassword',
     }
 }
 
