@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'computerapi',
         'HOST': 'localhost',
-        'PORT': '27017',        
+        'PORT': 27017,        
         'USERNAME': 'root',
         'PASSWORD': 'rootpassword',
     }
