@@ -5,5 +5,7 @@ setup:
 build:
   docker:
     web: Dockerfile
+    worker: worker/Dockerfile
 run:
   web: bundle exec puma -C config/puma.rb
+  worker: python myworker.py
