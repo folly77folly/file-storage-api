@@ -4,7 +4,7 @@ jobs:
       docker:
         - image: circleci/python:3.7
         - image: circleci/mongo:latest
-          port:   27017:27017       
+          # port:   27017:27017
           environment:
             - MONGODB_USERNAME: "x"
             - MONGODB_PASSWORD: "x"       
