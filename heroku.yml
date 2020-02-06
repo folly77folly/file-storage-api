@@ -1,5 +1,9 @@
+setup:
+  addons:
+    - plan: mongolab:sandbox
+      as: DATABASE
 build:
   docker:
     web: Dockerfile
 run:
-  web: bundle exec puma -C config/puma.rb
+  web: gunicorn computerapi.wsgi:application 0.0.0.:$PORT
