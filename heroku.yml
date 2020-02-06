@@ -8,8 +8,6 @@ setup:
     addons:
       - plan: mongolab:sandbox
         as: DATABASE
-    config:
-      S3_BUCKET: my-example-bucket
   build:
     docker:
       web: Dockerfile
