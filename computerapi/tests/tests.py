@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from ..models import Bucket
 import json
-from ..views import edit_bucket
+# from ..views import edit_bucket
 
 class BucketTests(APITestCase):
     def test_create_bucket(self):
@@ -12,7 +12,7 @@ class BucketTests(APITestCase):
         Ensure we can create a new account bucket.
         """
         #building the url and data to be inserted
-        url = reverse('add_bucket')
+        url = reverse('read_all_buckets')
         data = {'name': 'bucket101'}
 
         #creating a response object from query
@@ -30,7 +30,7 @@ class ViewEditDeleteBucketTests(APITestCase):
         """
         Ensuring the setup can add a bucket to test db.
         """
-        url = reverse('add_bucket')
+        url = reverse('read_all_buckets')
         data = {'name': 'bucket101'}
 
         self.client.post(url, data, format='json')
@@ -81,7 +81,7 @@ class ViewEditDeleteBucketTests(APITestCase):
         bucket_id = bucketlist.id
 
         #building the url to be deleted
-        url = reverse('remove_bucket', args = (bucketlist.id,))
+        url = reverse('edit_bucket', args = (bucketlist.id,))
 
         response = self.client.delete(url)
 
