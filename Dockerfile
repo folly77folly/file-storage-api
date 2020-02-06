@@ -8,5 +8,5 @@ WORKDIR app/
 COPY . .
 
 RUN pip install -r requirements.txt
-
+EXPOSE 61731
 CMD python manage.py runserver
