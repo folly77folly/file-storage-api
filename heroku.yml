@@ -1,7 +1,8 @@
 setup:
   addons:
     - plan: mongolab:sandbox
-      as: DATABASE
 build:
   docker:
     web: Dockerfile
+run : 
+  web: uwsgi --http 0:$PORT --wsgi-file 
