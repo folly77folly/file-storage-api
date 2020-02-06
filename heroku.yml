@@ -4,5 +4,5 @@ setup:
 build:
   docker:
     web: Dockerfile
-run : 
+run: 
   web: uwsgi --http 0:$PORT --wsgi-file 
