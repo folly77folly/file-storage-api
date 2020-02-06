@@ -6,4 +6,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn computerapi.wsgi:application 0.0.0.:$PORT
+  web: python manage.py runserver
