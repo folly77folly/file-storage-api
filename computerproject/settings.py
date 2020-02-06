@@ -78,9 +78,12 @@ WSGI_APPLICATION = 'computerproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME':'heroku_tz1h4z1l'
+        'NAME':'heroku_tz1h4z1l',
         # 'NAME': 'computerapi',
-        'HOST':'c863ar1p3gmvoqkos9k6uit3ps@ds061731.mlab.com:61731'
+        'USERNAME':'heroku_tz1h4z1l',
+        'PASSWORD':'c863ar1p3gmvoqkos9k6uit3ps',
+        'HOST':'ds061731.mlab.com',
+        'PORT': 61731
         # 'HOST': 'localhost',
         # 'PORT': 27017
         # 'USERNAME': 'root',
