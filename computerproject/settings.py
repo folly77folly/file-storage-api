@@ -89,6 +89,7 @@ DATABASES = {
         'PASSWORD':'c863ar1p3gmvoqkos9k6uit3ps',
         'HOST':'ds061731.mlab.com',
         'PORT': 61731        
+        
     }
 }
 
