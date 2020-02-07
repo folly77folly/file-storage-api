@@ -5,4 +5,4 @@ build:
   docker:
     web: Dockerfile
 run: 
-  web: gunicorn computerproject.wsgi.application 0.0.0.0:$PORT
+  web: gunicorn computerproject.wsgi:application 0.0.0.0:$PORT
