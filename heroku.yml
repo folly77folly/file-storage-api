@@ -5,4 +5,4 @@ build:
   docker:
     web: Dockerfile
 run: 
-  web: uwsgi --http 0:$PORT --wsgi-file 
+  web: uwsgi --http 0:$PORT --wsgi-file ./config/wsgi.py --master --processes 4 --threads 2
