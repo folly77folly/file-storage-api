@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'computerproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = url_generator(DEBUG, config("MONGO_URI", default = ""))
+DATABASES = url_generator(DEBUG, config("MONGODB_URI", default = ""))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
