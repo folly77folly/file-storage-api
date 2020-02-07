@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import dj_database_url
+from decouple import config
+from .db_url import url_generator
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,12 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2p+-%idw5acv54hkyqza0+vjdztk_4h7a7upk_0qs5(-wfyjy6'
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = config("DEBUG", cast = bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'computerapi',
     'rest_framework',
 ]
@@ -75,23 +80,7 @@ WSGI_APPLICATION = 'computerproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        # 'NAME': 'computerapi',
-        # 'HOST': 'localhost',
-        # 'PORT': 27017
-        # 'USERNAME': 'root',
-        # 'PASSWORD': 'rootpassword',
-        # mongodb://heroku_tz1h4z1l:c863ar1p3gmvoqkos9k6uit3ps@ds061731.mlab.com:61731/heroku_tz1h4z1l
-        'NAME':'heroku_tz1h4z1l',
-        'USERNAME':'heroku_tz1h4z1l',
-        'PASSWORD':'c863ar1p3gmvoqkos9k6uit3ps',
-        'HOST':'ds061731.mlab.com',
-        'PORT': 61731        
-    }
-}
-
+DATABASES = url_generator(DEBUG, config("MONGO_URI", default = ""))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

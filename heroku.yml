@@ -5,5 +5,4 @@ build:
   docker:
     web: Dockerfile
 run: 
-  web: python manage.py runserver 0.0.0.0:$PORT --noreload
-  # web: uwsgi --http 0:$PORT --wsgi-file ./config/wsgi.py --master --processes 4 --threads 2
+  web: gunicorn computerproject.wsgi.application 0.0.0.0:$PORT
