@@ -7,7 +7,7 @@ jobs:
           # port:   27017:27017
           environment:
             - MONGODB_USERNAME: "x"
-            - MONGODB_PASSWORD: "x"       
+            - MONGODB_PASSWORD: "x"
       steps:
         - checkout
         - restore_cache:

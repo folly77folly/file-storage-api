@@ -1,16 +1,8 @@
-# build:
-#   docker:
-#     web: Dockerfile
-# run:
-#   web: bundle exec puma -C config/puma.rb
-
 setup:
-    addons:
-      - plan: mongolab:sandbox
-        as: DATABASE
-  build:
-    docker:
-      web: Dockerfile
-  run:
-    web: bundle exec puma -C config/puma.rb
-    worker: python manage.py runserver
+  addons:
+    - plan: mongolab:sandbox
+build:
+  docker:
+    web: Dockerfile
+run: 
+  web: gunicorn computerproject.wsgi:application 0.0.0.0:$PORT
